@@ -95,7 +95,7 @@ Basic endpoint testing was performed using tools such as:
 
 Postman
 
-Curl
+
 
 👤 Author
 
