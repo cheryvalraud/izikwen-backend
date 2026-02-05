@@ -1,6 +1,6 @@
 # Izikwen Backend
 
-Secure **Spring Boot REST API** powering **Izikwen**, a platform designed to make buying and managing **USDT and Bitcoin** easier and safer, especially for users in Haiti.
+Secure **Spring Boot REST API** powering **Izikwen**, a platform designed to make buying and managing **USDT and Bitcoin** easier and safer.
 
 ---
 
