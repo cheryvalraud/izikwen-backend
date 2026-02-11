@@ -1,4 +1,4 @@
-package com.example.Izikwen.entity;
+package com.example.Izikwen.notification.model;
 
 
 import jakarta.persistence.*;
