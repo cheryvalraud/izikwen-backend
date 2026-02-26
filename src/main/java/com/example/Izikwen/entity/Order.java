@@ -14,6 +14,9 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
+    private String reference;
+
     @ManyToOne
     private User user;
 
@@ -47,4 +50,6 @@ public class Order {
     public void setFiatCurrency(String fiatCurrency) { this.fiatCurrency = fiatCurrency; }
     public void setWalletAddress(String walletAddress) { this.walletAddress = walletAddress; }
     public void setStatus(OrderStatus status) { this.status = status; }
+    public String getReference() { return reference; }
+    public void setReference(String reference) { this.reference = reference; }
 }

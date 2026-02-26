@@ -1,4 +1,4 @@
-package com.example.Izikwen.service;
+/* package com.example.Izikwen.service;
 
 
 import com.example.Izikwen.notification.model.Notification;
@@ -26,7 +26,7 @@ public class NotificationService {
     public void markAsRead(Long notificationId) {
         Notification n = repository.findById(notificationId)
                 .orElseThrow();
-        n.setRead(true);
+        //n.setRead(true);
         repository.save(n);
     }
-}
+} */

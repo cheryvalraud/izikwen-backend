@@ -19,23 +19,37 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+
         return http
+                // Disable CSRF because we are using JWT
                 .csrf(csrf -> csrf.disable())
 
-
-                .sessionManagement(sm ->
-                        sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                // Stateless session (no sessions, only JWT)
+                .sessionManagement(session ->
+                        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
 
+                // Authorize routes
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
                                 "/auth/**",
-                                "/error"
+                                "/error",
+
+                                // Swagger
+                                "/swagger-ui/**",
+                                "/v3/api-docs/**",
+
+                                // Payment endpoints (temporary for dev)
+                                "/payments/**",
+                                "/webhook/**"
                         ).permitAll()
+
                         .anyRequest().authenticated()
                 )
 
+                // Add JWT filter before username/password filter
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+
                 .build();
     }
 }
